@@ -15,4 +15,8 @@ screenshots/
 
 # Downloaded browser drivers
 drivers/
+
 tempCodeRunnerFile.java
+
+#adding target directory
+target/
