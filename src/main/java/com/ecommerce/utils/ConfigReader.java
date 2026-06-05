@@ -43,4 +43,20 @@ public class ConfigReader {
     public static int getPageLoadTimeout() {
         return Integer.parseInt(properties.getProperty("page.load.timeout"));
     }
+
+    public static String getValidEmail() {
+    return properties.getProperty("valid.email");
+    }
+
+    public static String getValidPassword() {
+        return properties.getProperty("valid.password");
+    }
+
+    public static String getInvalidEmail() {
+        return properties.getProperty("invalid.email");
+    }
+
+    public static String getInvalidPassword() {
+        return properties.getProperty("invalid.password");
+    }
 }
