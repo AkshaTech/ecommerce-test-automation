@@ -1,29 +1,34 @@
 package com.ecommerce.tests;
 
 import com.ecommerce.base.BaseTest;
+import com.ecommerce.pages.HomePage;
+import com.ecommerce.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SmokeTest extends BaseTest {
-    // 'extends BaseTest' means setUp() and tearDown() run automatically
 
     @Test
     public void verifyHomePageTitle() {
-        // driver comes from BaseTest — no setup needed here
-        String title = driver.getTitle();
-        System.out.println("Page title is: " + title);
-
-        // Assert that the title contains "Your Store"
-        Assert.assertTrue(title.contains("Your Store"),
-            "Home page title is wrong! Found: " + title);
+        HomePage homePage = new HomePage(driver);
+        Assert.assertTrue(homePage.getPageTitle().contains("Your Store"),
+            "Home page title is wrong!");
     }
 
     @Test
-    public void verifyHomePageUrl() {
-        String currentUrl = driver.getCurrentUrl();
-        System.out.println("Current URL is: " + currentUrl);
+    public void verifyLogoIsDisplayed() {
+        HomePage homePage = new HomePage(driver);
+        Assert.assertTrue(homePage.isLogoDisplayed(),
+            "Logo is not displayed on home page!");
+    }
 
-        Assert.assertTrue(currentUrl.contains("awesomeqa.com"),
-            "URL is wrong! Found: " + currentUrl);
+    @Test
+    public void verifyNavigationToLoginPage() {
+        HomePage homePage = new HomePage(driver);
+        homePage.navigateToLogin();
+
+        LoginPage loginPage = new LoginPage(driver);
+        Assert.assertTrue(loginPage.getCurrentUrl().contains("route=account/login"),
+            "Did not navigate to login page!");
     }
 }

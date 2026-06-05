@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
 
@@ -16,8 +16,8 @@ public class BaseTest {
     // 'protected' means test classes that extend BaseTest can access it
     protected WebDriver driver;
 
-    // @BeforeMethod runs before EVERY test method automatically
-    @BeforeMethod
+    // @BeforeClass runs before EVERY test class automatically
+    @BeforeClass
     public void setUp() {
 
         // Read which browser to use from config.properties
@@ -56,8 +56,8 @@ public class BaseTest {
         driver.get(ConfigReader.getBaseUrl());
     }
 
-    // @AfterMethod runs after EVERY test method automatically
-    @AfterMethod
+    // @AfterClass runs after EVERY test class automatically
+    @AfterClass
     public void tearDown() {
         // Always close the browser after each test, even if test fails
         if (driver != null) {
