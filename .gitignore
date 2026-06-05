@@ -1,0 +1,17 @@
+# Maven build output
+target/
+
+# VS Code settings
+.vscode/
+
+# IntelliJ project files (in case someone else opens with IntelliJ)
+.idea/
+*.iml
+
+# Test reports (generated fresh each run)
+test-output/
+reports/
+screenshots/
+
+# Downloaded browser drivers
+drivers/
